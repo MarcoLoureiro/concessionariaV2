@@ -1,0 +1,30 @@
+#version: '3'
+#services:
+#  postgres:
+#    image: postgres
+#    container_name: concessionaria
+#    environment:
+#      POSTGRES_DB: 'tb_concessionaria'
+#      POSTGRES_USER: 'postgres'
+#      POSTGRES_PASSWORD: 'postgres'
+#    ports:
+#      - '3310:5432'
+#    volumes:
+#      - './data/db:/data/db'
+version: '3'
+services:
+
+  mysqldb:
+    image: "mysql:8.0"
+    restart: always
+    container_name: tb_concessionaria
+    environment:
+      MYSQL_DATABASE: tb_concessionaria
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    ports:
+      - 3310:3306
+    volumes:
+      - './data/db:/data/db'
+
+
